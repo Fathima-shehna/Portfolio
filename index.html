@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fathima Shehna S | Aspiring Full Stack Developer</title>
+  <meta name="description" content="Portfolio of Fathima Shehna S, an MCA final-year student and aspiring full stack developer from Kerala, India.">
+  <meta name="theme-color" content="#1E1D24">
+
+  <!-- Inter font (needs internet; falls back to system fonts if unavailable) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========== 1. COLOURS (edit them here) ========== */
+    :root {
+      --bg: #1E1D24;          /* main background */
+      --bg-2: #272630;        /* secondary background */
+      --text: #F0EDF4;        /* main text */
+      --muted: #B8B2C7;       /* secondary text */
+      --accent: #A99BCB;      /* muted lavender */
+      --border: #3A3744;      /* thin borders */
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+      --radius: 12px;
+    }
+
+    /* ========== 2. BASICS ========== */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--bg);
+      overflow-x: hidden;
+      overflow-wrap: break-word;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 { margin: 0; line-height: 1.2; font-weight: 600; letter-spacing: -0.02em; }
+    p { margin: 0 0 1.1rem; }
+    a { color: var(--accent); text-decoration: none; }
+    ::selection { background: var(--accent); color: var(--bg); }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+
+    .container { width: 100%; max-width: 1040px; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 6rem 0; border-top: 1px solid var(--border); }
+    .alt { background: var(--bg-2); }
+
+    .eyebrow {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+    .section-title { font-size: clamp(1.7rem, 4vw, 2.2rem); margin-bottom: 2.4rem; }
+
+    /* ========== 3. BUTTONS ========== */
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid var(--accent);
+      transition: background 0.25s, color 0.25s, transform 0.25s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--accent); color: var(--bg); }
+    .btn-primary:hover { background: #bcb0d9; }
+    .btn-ghost { color: var(--accent); background: transparent; }
+    .btn-ghost:hover { background: rgba(169, 155, 203, 0.12); }
+
+    /* ========== 4. NAVIGATION ========== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(30, 29, 36, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; min-height: 64px; }
+    .brand { color: var(--text); font-weight: 600; font-size: 1rem; letter-spacing: -0.01em; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { color: var(--muted); font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      padding: 0.4rem 0.7rem;
+      font-size: 1.2rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    /* ========== 5. HERO ========== */
+    .hero {
+      border-top: none;
+      padding: 7rem 0 6.5rem;
+      background: radial-gradient(ellipse at 85% 0%, rgba(169, 155, 203, 0.09), transparent 55%);
+    }
+    .hero-small { color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem; }
+    .hero h1 { font-size: clamp(2.5rem, 7vw, 4.4rem); margin-bottom: 1.2rem; }
+    .hero-headline {
+      font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+      font-weight: 500;
+      color: var(--accent);
+      max-width: 640px;
+      margin-bottom: 1.2rem;
+      line-height: 1.45;
+    }
+    .hero-intro { color: var(--muted); max-width: 560px; }
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 2rem; }
+
+    /* ========== 6. ABOUT ========== */
+    .about-grid { display: grid; grid-template-columns: 1.7fr 1fr; gap: 4rem; }
+    .about-text p { color: var(--muted); }
+    .facts { list-style: none; margin: 0; padding: 0; }
+    .facts li { padding: 1rem 0; border-top: 1px solid var(--border); }
+    .facts li:last-child { border-bottom: 1px solid var(--border); }
+    .facts span { display: block; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .facts strong { font-weight: 500; }
+
+    /* ========== 7. SKILLS (simple labels) ========== */
+    .skill-list { display: flex; flex-wrap: wrap; gap: 0.8rem; list-style: none; margin: 0; padding: 0; }
+    .skill-list li {
+      padding: 0.55rem 1.3rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.95rem;
+      color: var(--text);
+      transition: border-color 0.25s, color 0.25s;
+    }
+    .skill-list li:hover { border-color: var(--accent); color: var(--accent); }
+    .skills-note { color: var(--muted); font-size: 0.95rem; margin-top: 1.6rem; }
+
+    /* ========== 8. PROJECT ========== */
+    .project {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.4rem;
+      box-shadow: var(--shadow);
+    }
+    .project-tag { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+    .project h3 { font-size: clamp(1.6rem, 4vw, 2.1rem); margin: 0.6rem 0 0.4rem; }
+    .project-sub { color: var(--muted); font-weight: 500; margin-bottom: 1.4rem; }
+    .project p.desc { color: var(--muted); max-width: 680px; }
+    .project-points { list-style: none; margin: 1.6rem 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.4rem; }
+    .project-points li { padding: 0.9rem 0; border-top: 1px solid var(--border); }
+    .project-points strong { display: block; font-weight: 500; margin-bottom: 0.1rem; }
+    .project-points span { color: var(--muted); font-size: 0.93rem; }
+    .project-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem; margin-top: 1.4rem; }
+    .project-note { color: var(--muted); font-size: 0.88rem; margin: 0; }
+
+    /* ========== 9. EDUCATION ========== */
+    .edu-list { list-style: none; margin: 0; padding: 0; max-width: 760px; }
+    .edu-item {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 1.5rem;
+      padding: 1.6rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .edu-item:last-child { border-bottom: 1px solid var(--border); }
+    .edu-status { font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); padding-top: 0.3rem; }
+    .edu-item h3 { font-size: 1.2rem; margin-bottom: 0.2rem; }
+    .edu-item p { margin: 0; color: var(--muted); }
+
+    /* ========== 10. CONTACT ========== */
+    .contact-intro { color: var(--muted); max-width: 540px; margin-bottom: 2rem; }
+    .contact-list { list-style: none; margin: 0; padding: 0; max-width: 640px; }
+    .contact-list li { border-top: 1px solid var(--border); }
+    .contact-list li:last-child { border-bottom: 1px solid var(--border); }
+    .contact-list a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem 0;
+      color: var(--text);
+      transition: color 0.2s, padding 0.25s;
+    }
+    .contact-list a:hover { color: var(--accent); padding-left: 0.5rem; }
+    .contact-label { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); min-width: 90px; }
+    .contact-value { flex: 1; text-align: right; word-break: break-word; }
+
+    /* ========== 11. FOOTER ========== */
+    footer { border-top: 1px solid var(--border); padding: 2rem 0; color: var(--muted); font-size: 0.88rem; }
+    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; }
+    footer p { margin: 0; }
+
+    /* ========== 12. SOFT FADE-IN ========== */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .btn, .contact-list a { transition: none; }
+    }
+
+    /* ========== 13. RESPONSIVE (tablet and phone) ========== */
+    @media (max-width: 860px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    @media (max-width: 720px) {
+      section { padding: 4.2rem 0; }
+      .hero { padding: 4.5rem 0 4rem; }
+      .menu-btn { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px; left: 0; right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: 0.5rem 1.5rem 1rem;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { display: block; padding: 0.85rem 0; font-size: 1rem; border-bottom: 1px solid var(--border); }
+      .nav-links li:last-child a { border-bottom: none; }
+      .project { padding: 1.5rem; }
+      .project-points { grid-template-columns: 1fr; }
+      .edu-item { grid-template-columns: 1fr; gap: 0.3rem; }
+      .contact-list a { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
+      .contact-value { text-align: left; }
+    }
+
+    @media (max-width: 440px) {
+      .container { padding: 0 1.15rem; }
+      .hero-buttons .btn { width: 100%; text-align: center; }
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVIGATION ================= -->
+  <header>
+    <div class="container nav">
+      <a href="#home" class="brand">Fathima Shehna S</a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">&#9776;</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="home">
+      <div class="container reveal">
+        <p class="hero-small">Hello, I'm</p>
+        <h1>Fathima Shehna S</h1>
+        <p class="hero-headline">Aspiring Full Stack Developer building clean, useful web applications with Python and Django.</p>
+        <p class="hero-intro">
+          I'm a final-year MCA student from Kerala, India. I enjoy turning ideas into working web projects,
+          and I'm looking for internship opportunities where I can learn, contribute, and grow.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">Explore My Work</a>
+          <a href="#contact" class="btn btn-ghost">Contact Me</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section class="alt" id="about">
+      <div class="container">
+        <span class="eyebrow reveal">About</span>
+        <h2 class="section-title reveal">A little about me</h2>
+
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p>
+              I'm currently in the final year of my MCA at Musaliar College of Engineering and Technology, Pathanamthitta.
+              Before that, I completed my BCA at STAS, Pathanamthitta, which gave me a solid foundation in computer applications.
+            </p>
+            <p>
+              I'm working towards becoming a full stack developer. My main project, SkillForge, grew out of an interest in
+              helping people understand which skills they need for the career they want.
+            </p>
+            <p>
+              I'm looking for internship and entry-level opportunities where I can work with experienced developers
+              and keep improving my skills.
+            </p>
+          </div>
+
+          <ul class="facts reveal">
+            <li><span>Location</span><strong>Kerala, India</strong></li>
+            <li><span>Currently</span><strong>MCA – Final Year</strong></li>
+            <li><span>Focus</span><strong>Python &amp; Django web development</strong></li>
+            <li><span>Looking for</span><strong>Internship opportunities</strong></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+    <section id="skills">
+      <div class="container">
+        <span class="eyebrow reveal">Skills</span>
+        <h2 class="section-title reveal">Technical skills</h2>
+
+        <ul class="skill-list reveal">
+          <li>Python</li>
+          <li>Django</li>
+          <li>HTML</li>
+          <li>CSS</li>
+        </ul>
+        <p class="skills-note reveal">Currently building on these towards full stack development.</p>
+      </div>
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+    <section class="alt" id="projects">
+      <div class="container">
+        <span class="eyebrow reveal">Projects</span>
+        <h2 class="section-title reveal">Featured project</h2>
+
+        <article class="project reveal">
+          <span class="project-tag">Main Project</span>
+          <h3>SkillForge</h3>
+          <p class="project-sub">Personalized Career Roadmap &amp; Skill Gap Analysis System</p>
+
+          <p class="desc">
+            SkillForge is a system designed to help students and aspiring professionals plan their career path.
+            It aims to compare the skills a person already has with the skills their chosen career requires,
+            and guide them with a personalized roadmap.
+          </p>
+
+          <ul class="project-points">
+            <li><strong>Career recommendations</strong><span>Suggests suitable career paths.</span></li>
+            <li><strong>Skill-gap analysis</strong><span>Compares current skills with career requirements.</span></li>
+            <li><strong>Personalized career roadmaps</strong><span>A step-by-step path towards a chosen goal.</span></li>
+            <li><strong>Progress tracking</strong><span>Follows progress along the roadmap.</span></li>
+          </ul>
+
+          <div class="project-foot">
+            <!-- EDIT: replace href="#" with your project link (GitHub repo or live demo)
+                 and remove the word "link-placeholder" from the class. -->
+            <a href="#" class="btn btn-ghost link-placeholder" target="_blank" rel="noopener noreferrer">Project link (coming soon)</a>
+            <p class="project-note">Describes the project's goals and planned scope.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= EDUCATION ================= -->
+    <section id="education">
+      <div class="container">
+        <span class="eyebrow reveal">Education</span>
+        <h2 class="section-title reveal">My education</h2>
+
+        <ul class="edu-list">
+          <li class="edu-item reveal">
+            <span class="edu-status">Currently pursuing</span>
+            <div>
+              <h3>MCA – Final Year</h3>
+              <p>Musaliar College of Engineering and Technology, Pathanamthitta, Kerala</p>
+            </div>
+          </li>
+          <li class="edu-item reveal">
+            <span class="edu-status">Completed</span>
+            <div>
+              <h3>BCA</h3>
+              <p>STAS, Pathanamthitta, Kerala</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="alt" id="contact">
+      <div class="container">
+        <span class="eyebrow reveal">Contact</span>
+        <h2 class="section-title reveal">Let's get in touch</h2>
+        <p class="contact-intro reveal">I'm open to internship opportunities. Email is the quickest way to reach me.</p>
+
+        <ul class="contact-list reveal">
+          <li>
+            <a href="mailto:fathimashehna46@gmail.com">
+              <span class="contact-label">Email</span>
+              <span class="contact-value">fathimashehna46@gmail.com</span>
+            </a>
+          </li>
+          <li>
+            <!-- EDIT: replace href="#" with your GitHub link, e.g. https://github.com/yourusername
+                 and remove "link-placeholder" from the class. -->
+            <a href="#" class="link-placeholder" target="_blank" rel="noopener noreferrer">
+              <span class="contact-label">GitHub</span>
+              <span class="contact-value">Link coming soon</span>
+            </a>
+          </li>
+          <li>
+            <!-- EDIT: replace href="#" with your LinkedIn link -->
+            <a href="#" class="link-placeholder" target="_blank" rel="noopener noreferrer">
+              <span class="contact-label">LinkedIn</span>
+              <span class="contact-value">Link coming soon</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Fathima Shehna S</p>
+      <p>Aspiring Full Stack Developer · Kerala, India</p>
+    </div>
+  </footer>
+
+  <script>
+    /* ===== Mobile menu ===== */
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    function closeMenu() {
+      navLinks.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.innerHTML = "&#9776;";
+    }
+
+    menuBtn.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", isOpen);
+      menuBtn.innerHTML = isOpen ? "&#10005;" : "&#9776;";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
+
+    /* ===== Highlight the current section in the menu ===== */
+    const sections = document.querySelectorAll("main section[id]");
+    const menuLinks = document.querySelectorAll(".nav-links a");
+
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          menuLinks.forEach(a => {
+            a.classList.toggle("active", a.getAttribute("href") === "#" + entry.target.id);
+          });
+        }
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+
+    sections.forEach(section => sectionObserver.observe(section));
+
+    /* ===== Soft fade-in on scroll ===== */
+    const revealItems = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      revealItems.forEach(item => revealObserver.observe(item));
+    } else {
+      revealItems.forEach(item => item.classList.add("visible"));
+    }
+
+    /* ===== Placeholder links do nothing until you add real URLs ===== */
+    document.querySelectorAll('a.link-placeholder[href="#"]').forEach(link => {
+      link.addEventListener("click", event => event.preventDefault());
+    });
+
+    /* ===== Footer year ===== */
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
